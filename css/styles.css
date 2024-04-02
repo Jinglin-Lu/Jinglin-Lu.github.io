@@ -1,0 +1,23 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    background-color: black;
+}
+
+.console {
+    color: #0f0; 
+    font-family: 'Courier New', Courier, monospace;
+    padding: 20px;
+    white-space: pre-wrap;
+}
+
+.console h1, .console h2, .console p {
+    margin: 0 0 10px 0; 
+}
+
+.console h1 {
+    display: block;
+    font-weight: bolder;
+    font-size: 2em;
+}
