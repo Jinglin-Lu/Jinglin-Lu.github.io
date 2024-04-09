@@ -1,0 +1,18 @@
+$maroon: #800000; // UChicago Maroon
+$dark-gray: #767676; // UChicago Dark Gray
+$light-gray: #D6D6CE; // UChicago Light Gray
+
+body {
+  background-color: $light-gray;
+  color:#800000
+}
+
+.body {
+    background-color: $light-gray;
+    color:#800000
+}
+
+.footer{
+    background-color: $dark-gray;
+    color:#D6D6CE
+}
