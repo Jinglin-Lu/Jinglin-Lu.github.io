@@ -2,14 +2,14 @@ body, html {
     margin: 0;
     padding: 0;
     height: 100%;
-    background-color: black;
+    background-color: white;
 }
 
 .console {
     color: #0f0; 
     font-family: 'Courier New', Courier, monospace;
     padding: 20px;
-    white-space: pre-wrap;
+    white-space: pre-wrap; 
 }
 
 .console h1, .console h2, .console p {
@@ -17,7 +17,44 @@ body, html {
 }
 
 .console h1 {
-    display: block;
     font-weight: bolder;
-    font-size: 2em;
+    font-size: 2em; 
+}
+
+ol.a {
+    list-style-type: lower-roman; 
+}
+
+ol.b {
+    list-style-type: lower-alpha; 
+}
+
+ul.c {
+    list-style-type: square;
+}
+
+ul.d {
+    list-style-type: none;
+    padding-left: 0; 
+}
+
+ul.d li {
+    position: relative; 
+    padding-left: 1.5em; 
+}
+
+ul.d li::before {
+    content: "$\00A0"; 
+    position: absolute;
+    left: 0; 
+}
+
+a {
+    color: #007bff;
+    text-decoration: none; 
+}
+
+a:hover {
+    color: #0056b3;
+    text-decoration: underline; 
 }
