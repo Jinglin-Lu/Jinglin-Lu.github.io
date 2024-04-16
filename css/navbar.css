@@ -1,0 +1,89 @@
+/* General Navbar Styles */
+.navbar {
+    background-color: maroon; /* Sets the navbar's background color to maroon */
+    padding-top: 0.5rem; /* Sets the top padding of the navbar */
+    padding-bottom: 0.5rem; /* Sets the bottom padding of the navbar */
+    font-family: 'Arial', sans-serif; /* Ensures all navbar elements use Arial font */
+}
+
+/* Container within Navbar */
+.navbar .container {
+    padding: 0; /* Removes padding inside the container */
+    margin: auto; /* Centers the container horizontally */
+}
+
+/* Navbar Navigation List */
+.navbar-nav {
+    list-style: none; /* Removes bullet points from the list */
+    padding-left: 0; /* Removes padding on the left of the list */
+    margin: 0; /* Removes margins from the navbar navigation */
+    display: flex; /* Uses flexbox for layout */
+    flex-direction: row; /* Aligns navbar items in a row */
+    justify-content: center; /* Centers navbar items horizontally */
+    width: 100%; /* Sets navbar width to full container width */
+}
+
+/* Individual Navbar Items */
+.navbar-nav .nav-item {
+    position: relative; /* Allows absolute positioning of nested elements */
+    padding: 0 20px; /* Adds horizontal padding to each nav item */
+}
+
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: white; /* Sets the text color of nav links to white */
+    padding: 0.5rem 1rem; /* Adds padding around nav links */
+    text-decoration: none; /* Removes underline from nav links */
+    border-radius: 20px; /* Rounds the corners of nav link backgrounds */
+}
+
+/* Hover and Focus Styles for Nav Links */
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link:focus {
+    background-color: #953b39; /* Changes background color on hover/focus */
+}
+
+/* Dropdowns within Navbar */
+.navbar .nav-item.dropdown .nav-link {
+    padding-right: 2.5rem; /* Adds right padding to accommodate dropdown arrow */
+}
+
+.navbar .nav-item.dropdown .nav-link::after {
+    content: '\25BC'; /* Adds a downward arrow after the link text */
+    font-size: 0.7em; /* Sets the size of the dropdown arrow */
+    position: absolute; /* Positions the arrow relative to its nav link */
+    right: 10px; /* Positions the arrow from the right */
+    top: 50%; /* Center the arrow vertically */
+    transform: translateY(-50%); /* Ensures the arrow is perfectly centered */
+}
+
+/* Dropdown Menu */
+.navbar .dropdown-menu {
+    display: none; /* Hides dropdown menu initially */
+    position: absolute; /* Positions dropdown menu in relation to its parent */
+    background-color: maroon; /* Sets dropdown menu background color */
+    border-radius: 5px; /* Rounds the corners of the dropdown menu */
+    margin-top: 0.5rem; /* Adds a small space between nav item and dropdown */
+    white-space: nowrap; /* Prevents text wrapping in dropdown items */
+}
+
+/* Dropdown Item Interaction */
+.navbar .nav-item:hover .dropdown-menu {
+    display: block; /* Displays dropdown menu on hover */
+}
+
+.dropdown-item {
+    color: white; /* Sets the text color of dropdown items to white */
+    text-decoration: none; /* Removes underline from dropdown items */
+    padding: 0.75rem 1.5rem; /* Adds padding around dropdown items */
+    display: block; /* Ensures dropdown items are block-level for full width */
+    clear: both; /* Clears floated elements */
+    white-space: nowrap; /* Prevents text wrapping in dropdown items */
+}
+
+/* Hover and Focus Styles for Dropdown Items */
+.dropdown-item:hover, 
+.dropdown-item:focus {
+    background-color: #953b39; /* Changes background color on hover/focus */
+    border-radius: 5px; /* Rounds the corners of hovered/focused dropdown items */
+}
