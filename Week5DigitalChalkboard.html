@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS Fun</title>
+    <script src="scripts.js"></script>
+    <style>
+        button {
+            background-color: blue; 
+            color: white; 
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer; 
+        }
+        
+        button:hover {
+            background-color: blue; 
+        }
+    </style>
+</head>
+<body>
+    <!-- Trivia Question Form -->
+    <div>
+        <label for="triviaInput">What is the capital of France?</label>
+        <input type="text" id="triviaInput" onkeypress="checkEnter(event)">
+        <button onclick="checkTrivia()">Submit</button>
+        <div id="triviaResult"></div>
+    </div>
+
+    <!-- Odd or Even Number Checker Form -->
+    <div>
+        <label for="numberInput">Enter a 5-digit number:</label>
+        <input type="number" id="numberInput">
+        <button onclick="checkNumber()">Submit</button>
+        <div id="numberResult"></div>
+    </div>
+</body>
+</html>
