@@ -1,4 +1,3 @@
-// Track list with album art paths
 var playlist = [
     { title: "The Beatles - Yellow Submarine", src: "audio/The Beatles - Yellow Submarine.mp3", albumArt: "images/The Beatles - Yellow Submarine.jpg" },
     { title: "Leehom Wang - 唯一", src: "audio/Leehom Wang - 唯一.mp3", albumArt: "images/Leehom Wang - 唯一.jpg" },
@@ -11,10 +10,9 @@ var playlist = [
 var currentTrack = 0;
 var sound;
 
-// Function to change to a specific track
 function changeTrack(trackIndex) {
     if (sound) {
-        sound.unload(); // Unload and destroy the previous sound object
+        sound.unload();
     }
     sound = new Howl({
         src: [playlist[trackIndex].src],
@@ -30,27 +28,23 @@ function changeTrack(trackIndex) {
     sound.play();
 }
 
-// Function to set up the track details without playing it
 function setupTrack(trackIndex) {
     document.getElementById('track').textContent = "Ready to play: " + playlist[trackIndex].title;
     document.getElementById('albumArt').src = playlist[trackIndex].albumArt;
 }
 
-// Function to play the next track
 function nextTrack() {
     currentTrack = (currentTrack + 1) % playlist.length;
     changeTrack(currentTrack);
 }
 
-// Function to play the previous track
 function prevTrack() {
     currentTrack = (currentTrack + playlist.length - 1) % playlist.length;
     changeTrack(currentTrack);
 }
 
-// Set up event listeners and the first track details when the DOM is fully loaded
 document.addEventListener('DOMContentLoaded', function() {
-    setupTrack(currentTrack); // Set up the first track's details on load
+    setupTrack(currentTrack); 
 
     document.getElementById('playPauseBtn').addEventListener('click', function() {
         if (sound && sound.playing()) {
@@ -58,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function() {
         } else if (sound) {
             sound.play();
         } else {
-            // If sound is not initialized, start playback
             changeTrack(currentTrack);
         }
     });
