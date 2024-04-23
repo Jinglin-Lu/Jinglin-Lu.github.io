@@ -25,9 +25,9 @@ h1 {
 }
 
 .controlsInner {
-    display: flex; /* Changes the layout to flex to align children horizontally */
-    justify-content: center; /* Centers the buttons inside the container */
-    gap: 10px; /* Adds space between each button */
+    display: flex; 
+    justify-content: center;
+    gap: 10px; 
 }
 
 .btn {
