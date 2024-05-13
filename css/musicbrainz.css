@@ -1,0 +1,62 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTAwIiBoZWlnaHQ9IjUwMCI+CjxmaWx0ZXIgaWQ9Im4iPgo8ZmVUdXJidWxlbmNlIHR5cGU9ImZyYWN0YWxOb2lzZSIgYmFzZUZyZXF1ZW5jeT0iLjciIG51bU9jdGF2ZXM9IjEwIiBzdGl0Y2hUaWxlcz0ic3RpdGNoIj48L2ZlVHVyYnVsZW5jZT4KPC9maWx0ZXI+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWxsPSIjMDAwIj48L3JlY3Q+CjxyZWN0IHdpZHRoPSI1MDAiIGhlaWdodD0iNTAwIiBmaWx0ZXI9InVybCgjbikiIG9wYWNpdHk9IjAuNCI+PC9yZWN0Pgo8L3N2Zz4=");
+    color: #fff;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: #fff;
+    margin-bottom: 20px;
+    font-family: 'Jersey 15', sans-serif;
+    font-size: 36px; /* Increased font size */
+    background-color: #000; /* Black background for the title box */
+    padding: 20px; /* Adds padding inside the box */
+    border-radius: 10px; /* Optional: Rounds the corners of the box */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: Adds shadow for 3D effect */
+}
+
+.controlsOuter {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.controlsInner {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.btn {
+    padding: 10px 20px;
+    background-color: #fff;
+    color: #000;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btn:hover {
+    background-color: #eee;
+}
+
+#waveform, #bar, #progress {
+    display: none;
+}
+
+#results a {
+    color: #fff; /* Sets the initial color of the links to white */
+    text-decoration: none; /* Removes underline from links */
+    transition: color 0.3s; /* Smooth transition for color change */
+}
+
+#results a:active {
+    color: #007bff; /* Changes color to blue when the link is clicked */
+}
+
+#results a:hover {
+    color: #007bff; /* Optional: Changes color to blue when hovered */
+}
