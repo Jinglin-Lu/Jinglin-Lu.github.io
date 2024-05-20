@@ -2,34 +2,42 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Music API Search</title>
-    <link rel="stylesheet" href="css/musicbrainz.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
-    <style>
-        body { font-family: Arial, sans-serif; padding: 20px; }
-        table { width: 100%; border-collapse: collapse; }
-        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digital Chalkboard Week 8</title>
+    <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="css/howler.css">
 </head>
 <body>
+    <!--Nav Bar-->
     <div id="nav-placeholder"></div>
+    <!--End Nav Bar-->
 
     <h1>Jinglin's Music API</h1>
     <input type="text" id="artistSearch" placeholder="Enter artist name">
     <button onclick="searchArtist()">Search</button>
     <div id="results"></div>
     <h2>Albums</h2>
-    <table id="albums">
-        <tr><th>Release Date</th><th>Title</th></tr>
+    <table id="albums" class="table table-striped">
+        <thead>
+            <tr><th>Release Date</th><th>Title</th></tr>
+        </thead>
+        <tbody>
+        </tbody>
     </table>
 
     <script>
         function searchArtist() {
             const artist = document.getElementById("artistSearch").value;
             fetch(`https://musicbrainz.org/ws/2/artist/?query=${artist}&fmt=json`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
                     const results = document.getElementById("results");
                     results.innerHTML = '';
@@ -37,7 +45,10 @@
                         const link = document.createElement('a');
                         link.textContent = artist.name;
                         link.href = "#";
-                        link.onclick = () => getAlbums(artist.id);
+                        link.onclick = (event) => {
+                            event.preventDefault();
+                            getAlbums(artist.id);
+                        };
                         results.appendChild(link);
                         results.appendChild(document.createElement('br'));
                     });
@@ -47,12 +58,17 @@
 
         function getAlbums(artistId) {
             fetch(`https://musicbrainz.org/ws/2/release-group/?query=arid:${artistId}&fmt=json`)
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    const albumsTable = document.getElementById("albums");
-                    albumsTable.innerHTML = '<tr><th>Release Date</th><th>Title</th></tr>';
+                    const albumsTableBody = document.querySelector("#albums tbody");
+                    albumsTableBody.innerHTML = '';
                     data['release-groups'].forEach(album => {
-                        const row = albumsTable.insertRow();
+                        const row = albumsTableBody.insertRow();
                         const cell1 = row.insertCell(0);
                         const cell2 = row.insertCell(1);
                         cell1.textContent = album['first-release-date'];
@@ -63,11 +79,13 @@
         }
     </script>
     
-    <!-- Footer -->
+    <!--Footer-->
     <div id="footer-placeholder"></div>
-    <!-- End Footer -->
+    <!--End Footer-->
 
-    <script src="nav.js"></script>
-    <script src="footer.js"></script>
+    <script src="../js/nav.js"></script>
+    <script src="../js/footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 </html>
