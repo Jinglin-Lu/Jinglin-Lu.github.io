@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 04 Digital Chalkboard Assignment</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/stylesWeek4.css">
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="#">Week 04 - Digital Chalkboard: Bootstrap basics and JS buttons</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row gx-5 gy-5">
+            <div class="col-sm">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+                Cras id justo finibus, malesuada metus eget, aliquet ligula. Vivamus egestas, purus.</div>
+            <div class="col-sm">Sed tincidunt sed metus euismod sagittis. Sed cursus libero eget iaculis faucibus. 
+                Praesent mollis, lacus ac lacinia facilisis, nunc libero.</div>
+            <div class="col-sm">Vivamus sit amet magna quis felis vehicula aliquam. 
+                Maecenas lobortis convallis elit nec luctus. Cras interdum est ut laoreet suscipit.</div>
+            <div class="col-sm">Morbi lacinia neque quis mauris bibendum, rutrum dapibus nunc pharetra. 
+                Ut elementum eleifend fringilla. Vivamus varius posuere risus, non congue.</div>
+        </div>
+        <div class="container mt-4">
+            <div class="row">
+                <div class="col text-center">
+                    <button id="Button1" class="btn btn-outline-danger">Greet</button>
+                </div>
+                <div class="col text-center">
+                    <button id="Button2" class="btn btn-outline-danger">Submit</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function greetUser() {
+            const now = new Date();
+            const hour = now.getHours(); 
+            let greeting;
+
+            if (hour >= 5 && hour < 12) {
+                greeting = "Good morning";
+            } else if (hour >= 12 && hour < 18) {
+                greeting = "Good day";
+            } else {
+                greeting = "Good evening";
+            }
+
+            alert(greeting);
+        }
+
+        function changeButtonTextAndClass() {
+            let button = document.getElementById("Button2");
+            console.log('Before change:', button.textContent, button.className);
+
+            button.textContent = "Done";
+            button.className = "btn btn-success";
+
+            console.log('After change:', button.textContent, button.className);
+        }
+
+        document.getElementById('Button1').addEventListener('click', greetUser);
+        document.getElementById('Button2').addEventListener('click', changeButtonTextAndClass);
+    </script>
+
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <!-- End Footer -->
+
+    <script src="nav.js"></script>
+    <script src="footer.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</body>
+</html>

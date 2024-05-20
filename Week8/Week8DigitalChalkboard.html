@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music API Search</title>
+    <link rel="stylesheet" href="css/musicbrainz.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jersey+15&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 8px; text-align: left; border-bottom: 1px solid #ddd; }
+    </style>
+</head>
+<body>
+    <div id="nav-placeholder"></div>
+
+    <h1>Jinglin's Music API</h1>
+    <input type="text" id="artistSearch" placeholder="Enter artist name">
+    <button onclick="searchArtist()">Search</button>
+    <div id="results"></div>
+    <h2>Albums</h2>
+    <table id="albums">
+        <tr><th>Release Date</th><th>Title</th></tr>
+    </table>
+
+    <script>
+        function searchArtist() {
+            const artist = document.getElementById("artistSearch").value;
+            fetch(`https://musicbrainz.org/ws/2/artist/?query=${artist}&fmt=json`)
+                .then(response => response.json())
+                .then(data => {
+                    const results = document.getElementById("results");
+                    results.innerHTML = '';
+                    data.artists.forEach(artist => {
+                        const link = document.createElement('a');
+                        link.textContent = artist.name;
+                        link.href = "#";
+                        link.onclick = () => getAlbums(artist.id);
+                        results.appendChild(link);
+                        results.appendChild(document.createElement('br'));
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+
+        function getAlbums(artistId) {
+            fetch(`https://musicbrainz.org/ws/2/release-group/?query=arid:${artistId}&fmt=json`)
+                .then(response => response.json())
+                .then(data => {
+                    const albumsTable = document.getElementById("albums");
+                    albumsTable.innerHTML = '<tr><th>Release Date</th><th>Title</th></tr>';
+                    data['release-groups'].forEach(album => {
+                        const row = albumsTable.insertRow();
+                        const cell1 = row.insertCell(0);
+                        const cell2 = row.insertCell(1);
+                        cell1.textContent = album['first-release-date'];
+                        cell2.textContent = album.title;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+    </script>
+    
+    <!-- Footer -->
+    <div id="footer-placeholder"></div>
+    <!-- End Footer -->
+
+    <script src="nav.js"></script>
+    <script src="footer.js"></script>
+</body>
+</html>

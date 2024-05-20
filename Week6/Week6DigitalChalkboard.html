@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Array Sorting</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      width: 60%;
+      margin: auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 15px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      width: 100%;
+      box-sizing: border-box;
+      margin-top: 10px;
+    }
+    .button:hover {
+      background-color: #0056b3;
+    }
+    .divider {
+      background-color: #d3d3d3;
+      height: 2px;
+      margin: 20px 0;
+    }
+    .output {
+      margin-top: 20px;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="nav-placeholder"></div>
+
+  <div class="container">
+    <h1>Week 06 — Digital Chalkboard: More JS Fun</h1>
+    <p>Default values: Watermelon, Apple, Orange, Kiwi</p>
+    <button class="button" onclick="sortDefaultItems()">Sort Default Items</button>
+    <div class="divider"></div>
+    <button class="button" onclick="askUserForCategories()">Enter Items</button>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    function sortDefaultItems() {
+      const items = ['Watermelon', 'Apple', 'Orange', 'Kiwi'];
+      displaySortedItems(items);
+    }
+
+    function askUserForCategories() {
+      const categories = ['Book', 'Movie', 'Car', 'Animal'];
+      let userItems = [];
+      let numberOfItems = prompt("How many items would you like to enter? Choose between 2 and 4.");
+
+      numberOfItems = parseInt(numberOfItems, 10);
+
+      if (numberOfItems >= 2 && numberOfItems <= 4) {
+        for (let i = 0; i < numberOfItems; i++) {
+          let item = prompt(`Enter category ${i + 1} of ${numberOfItems}: Enter one ${categories[i]}`);
+          if (item) {
+            userItems.push(item);
+          } else {
+            alert("Please enter a valid item.");
+            return;
+          }
+        }
+        displaySortedItems(userItems);
+      } else {
+        alert("Please enter a number between 2 and 4.");
+      }
+    }
+
+    function displaySortedItems(items) {
+      const sortedArray = items.sort();
+      const lastItemAlphabetically = sortedArray[sortedArray.length - 1];
+
+      const outputElement = document.getElementById('output');
+      outputElement.innerHTML = `The original array is [${items.join(', ')}].<br>`;
+      outputElement.innerHTML += `The sorted array is [${sortedArray.join(', ')}].<br>`;
+      outputElement.innerHTML += `The last item of the sorted array is ${lastItemAlphabetically}.`;
+    }
+  </script>
+
+  <!-- Footer -->
+  <div id="footer-placeholder"></div>
+  <!-- End Footer -->
+
+  <script src="nav.js"></script>
+  <script src="footer.js"></script>
+
+</body>
+</html>
