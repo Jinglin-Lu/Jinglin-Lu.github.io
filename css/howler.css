@@ -1,5 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
 h1 {
   color: #576e73; /* Changed from #b1799e */
+}
+
+h2 {
+  color: white; /* Changed from #818e8a */
 }
 
 h3 {
@@ -10,12 +16,18 @@ h4 {
   color: #b4bdac; /* Changed from #e69fce */
 }
 
-h2 {
+.custom-heading {
   color: white; /* Changed from #818e8a */
+  font-family: 'Pacifico', cursive;
+  font-size: 2em; /* Adjust the size as needed */
+  font-weight: bold;
 }
 
-h8 {
-  color: white; /* Changed from #818e8a */
+.another-custom-heading {
+  color: #283E43; /* Changed from #818e8a */
+  font-family: 'Pacifico', cursive;
+  font-size: 2em; /* Adjust the size as needed */
+  font-weight: bold;
 }
 
 p {
