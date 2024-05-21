@@ -11,7 +11,7 @@ h4 {
 }
 
 h2 {
-  color: #818e8a; /* Changed from #c084ac */
+  color: white; /* Changed from #818e8a */
 }
 
 p {
@@ -19,7 +19,7 @@ p {
 }
 
 a.link {
-  color: rgb(219, 185, 179); /* Changed from rgb(255, 255, 255) */
+  color: #ADD8E6; /* Changed to a lighter blue */
   text-decoration: none;
   margin-right: 15px;
   margin-left: 0;
@@ -32,12 +32,12 @@ a.link:hover {
 
 a.link:focus {
   font-weight: bold;
-  color: rgb(219, 185, 179); /* Changed from white */
+  color: #ADD8E6; /* Changed to match the lighter blue */
 }
 
 .navbar {
   background-color: #b4bdac; /* Changed from #e69fce */
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Pacifico', cursive; /* Changed font family */
   font-size: 20px;
 }
 
@@ -76,7 +76,7 @@ a.link:focus {
 }
 
 .icon-button {
-  background-color: #dbb9b3; /* Changed from #d0e1b2 */
+  background-color: rgb(255, 255, 235); /* Changed to RGB(255, 255, 235) */
   color: #576e73; /* Changed from rgb(0, 98, 156) */
 }
 
@@ -106,7 +106,7 @@ a.link:focus {
 
 .navbar .dropdown-menu .dropdown-item {
   background-color: #99adae; /* Changed from #f0e5f3 */
-  color: #818e8a; /* Changed from #050d64 */
+  color: #13292D; /* Changed to #13292D for better visibility */
   font-family: 'Great Vibes', cursive;
   font-size: 18px;
 }
@@ -137,4 +137,3 @@ a.link:focus {
   padding: 20px;
   min-height: calc(100vh - 150px);
 }
-/*# sourceMappingURL=uchicago_format.css.map */
