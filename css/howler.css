@@ -153,3 +153,11 @@ a.link:focus {
   padding: 20px;
   min-height: calc(100vh - 150px);
 }
+
+/* New CSS for the display section */
+.display-section {
+  background-color: #5D6B42; /* New background color */
+  color: white; /* Ensure the text color remains white */
+  text-align: center;
+  padding: 5rem;
+}
