@@ -26,16 +26,22 @@
                 padding: 2rem;
             }
         }
+        .carousel-item {
+            height: 300px;
+        }
         .carousel-item img {
             width: 100%;
-            height: auto;
+            height: 100%;
+            object-fit: cover;
         }
-        .carousel-caption h5, .carousel-caption h6 {
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 0.5rem;
+        .carousel-caption h5 {
+            font-size: 1.5rem;
+        }
+        .carousel-caption h6 {
+            font-size: 1rem;
         }
         @media (max-width: 768px) {
-            .carousel-item img {
+            .carousel-item {
                 height: 200px;
             }
             .carousel-caption h5 {
