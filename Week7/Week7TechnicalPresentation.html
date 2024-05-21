@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Technical Presentation Week7</title>
+    <title>Technical Presentation Week 7</title>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" 
     rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -17,6 +17,7 @@
   <!--Nav Bar-->
   <div id="nav-placeholder"></div>
   <!--End Nav Bar-->
+
   <div class="container-content">
     <div class="container mt-4">
         <h1>Technical Presentation 6: OCHRE Items Overview Using API</h1>
@@ -29,12 +30,14 @@
             {
                 uuid: '6f18e3a7-a396-46d9-85cb-92674c24cfc0',
                 title: 'Item 1',
-                page: 'item1.html'
+                page: '../Week7/item1.html',
+                columnClass: 'col-md-6' // Added column class
             },
             {
                 uuid: '50f7b9a5-329a-49ab-85e2-f8fb4ee6e867',
                 title: 'Item 2',
-                page: 'item2.html'
+                page: '../Week7/item2.html',
+                columnClass: 'col-md-6' // Added column class
             }
         ];
 
@@ -44,7 +47,7 @@
          */
         function loadItemsSummary(items) {
             items.forEach(item => {
-                loadOchreSummary(item.uuid, item.title, item.page);
+                loadOchreSummary(item.uuid, item.title, item.page, item.columnClass);
             });
         }
 
@@ -53,8 +56,9 @@
          * @param {string} uuid - The UUID of the item to fetch
          * @param {string} title - The fallback title for the item
          * @param {string} page - The HTML page to link to
+         * @param {string} columnClass - The Bootstrap column class for the item
          */
-        function loadOchreSummary(uuid, title, page) {
+        function loadOchreSummary(uuid, title, page, columnClass) {
             const url = `https://ochre.lib.uchicago.edu/ochre?uuid=${uuid}`;
             fetch(url)
                 .then((response) => response.text())
@@ -69,7 +73,7 @@
 
                     // Build the HTML for the card
                     let html = `
-                        <div class="col-md-6 mb-4">
+                        <div class="${columnClass} mb-4">
                             <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">${itemTitle}</h5>`;
@@ -95,13 +99,14 @@
         loadItemsSummary(items);
     </script>
   </div>
+
   <!--Footer-->
   <div id="footer-placeholder"></div>
   <!--End Footer-->
 
   <script src="../js/nav.js"></script>
   <script src="../js/footer.js"></script>
-  <script src="../js/week7.js"></script>
+  <script src="../js/week7.js"></script> <!-- Updated script path -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
