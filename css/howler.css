@@ -16,14 +16,14 @@ h4 {
   color: #b4bdac; /* Changed from #e69fce */
 }
 
-.custom-heading {
+h5 {
   color: white; /* Changed from #818e8a */
   font-family: 'Pacifico', cursive;
   font-size: 2em; /* Adjust the size as needed */
   font-weight: bold;
 }
 
-.another-custom-heading {
+h6 {
   color: #283E43; /* Changed from #818e8a */
   font-family: 'Pacifico', cursive;
   font-size: 2em; /* Adjust the size as needed */
