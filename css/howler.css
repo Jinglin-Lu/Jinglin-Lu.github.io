@@ -19,14 +19,14 @@ h4 {
 h5 {
   color: white; /* Changed from #818e8a */
   font-family: 'Pacifico', cursive;
-  font-size: 2em; /* Adjust the size as needed */
+  font-size: 20px; /* Adjust the size as needed */
   font-weight: bold;
 }
 
 h6 {
   color: #283E43; /* Changed from #818e8a */
   font-family: 'Pacifico', cursive;
-  font-size: 2em; /* Adjust the size as needed */
+  font-size: 20px; /* Adjust the size as needed */
   font-weight: bold;
 }
 
@@ -123,7 +123,7 @@ a.link:focus {
 .navbar .dropdown-menu .dropdown-item {
   background-color: #99adae; /* Changed from #f0e5f3 */
   color: #13292D; /* Changed to #13292D for better visibility */
-  font-family: 'Great Vibes', cursive;
+  font-family: 'Pacifico', cursive;
   font-size: 18px;
 }
 
